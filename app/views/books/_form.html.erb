@@ -1,0 +1,31 @@
+<% if book.errors.any? %>
+    <% book.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
+<%= form_with model: book do |form| %>
+  <div>
+    <%= form.label :title %> <br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :author %> <br>
+    <%= form.text_field :author %>
+  </div>
+
+  <div>
+    <%= form.label :genre %> <br>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div>
+    <%= form.label :ISBN_Number %> <br>
+    <%= form.text_field :isbn %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
