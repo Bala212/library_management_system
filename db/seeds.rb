@@ -8,10 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Library.create(name: 'kylas')
+lib = Library.create(name: 'kylas')
 
 5. times do |i|
-  Book.create(title: "book #{i+1}", author: 'pqr', isbn: 123, genre: 'xyz', library_id: 1, student_id: nil)
+  Book.create(title: "book #{i+1}", author: 'pqr', isbn: 123, genre: 'xyz', library_id: lib.id)
 end
 
 5. times do |i|

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Student, type: :model do
 
   context 'associations' do
-    it { expect(Student.reflect_on_association(:books).macro).to eq(:has_many) }
+    it { expect(Student.reflect_on_association(:books).macro).to eq(:has_and_belongs_to_many) }
   end
 
   context 'validations' do

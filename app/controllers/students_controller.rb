@@ -14,7 +14,7 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(student_params)
-    debugger
+    # debugger
     respond_to do |format|
       if @student.save
         format.html { redirect_to student_path(@student) }

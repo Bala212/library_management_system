@@ -4,5 +4,5 @@ class Student < ApplicationRecord
   validates :phone, presence: true, numericality: true, length: { minimum: 10 }
   validates :email, presence: true,format: { with: /\A(\S+)@(.+)\.(\S+)\z/}
 
-  has_many :books
+  has_and_belongs_to_many :books
 end

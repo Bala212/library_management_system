@@ -3,6 +3,6 @@ class Book < ApplicationRecord
   validates :author, presence: true
   validates :isbn, presence: true
 
-  belongs_to :library, optional: true
-  belongs_to :student, optional: true
+  belongs_to :library
+  has_and_belongs_to_many :students
 end

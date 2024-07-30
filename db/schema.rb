@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_15_122946) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_29_155215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,11 +20,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_15_122946) do
     t.integer "isbn"
     t.string "genre"
     t.bigint "library_id"
-    t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["library_id"], name: "index_books_on_library_id"
-    t.index ["student_id"], name: "index_books_on_student_id"
+  end
+
+  create_table "books_students", id: false, force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "book_id", null: false
+    t.index ["book_id", "student_id"], name: "index_books_students_on_book_id_and_student_id"
+    t.index ["student_id", "book_id"], name: "index_books_students_on_student_id_and_book_id"
   end
 
   create_table "libraries", force: :cascade do |t|
@@ -43,5 +48,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_15_122946) do
   end
 
   add_foreign_key "books", "libraries"
-  add_foreign_key "books", "students"
 end

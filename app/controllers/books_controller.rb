@@ -28,7 +28,6 @@ class BooksController < ApplicationController
 
   def update
     respond_to do |format|
-
       if @book.update(book_params)
         format.html { redirect_to book_path(@book) }
         # format.json { render json: @book }

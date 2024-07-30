@@ -1,0 +1,23 @@
+<h1>List of Libraries</h1>
+<%= link_to 'Add new library', new_library_path %>
+<br>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th colspan = "3">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @libraries.each do |library| %>
+            <tr>
+                <td><%= library.id %></td>
+                <td><%= library.name %></td>
+                <td><%= link_to 'Edit', edit_library_path(library) %></td>
+                <td><%= link_to 'Delete', library_path(library), data:{ turbo_method: :delete, turbo_confirm: 'Are you sure?'} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

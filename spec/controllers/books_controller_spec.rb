@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
+  before do
+    @lib = Library.create(name: 'lib')
+  end
   describe 'GET index' do
     before do
       get :index
@@ -222,24 +225,19 @@ RSpec.describe BooksController, type: :controller do
       author: "asdf",
       genre: "asdf",
       isbn: 123,
+      library_id: @lib.id
     }
   end
 
   def valid_book_update
     {
       title: "update title",
-      author: "asdf",
-      genre: "asdf",
-      isbn: 123,
     }
   end
 
   def invalid_book_update
     {
-      title: "update title",
-      author: nil,
-      genre: "asdf",
-      isbn: 123
+      title: nil
     }
   end
 end
