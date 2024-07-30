@@ -1,0 +1,16 @@
+<% if library.errors.any? %>
+    <% library.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+    <% end %>
+<% end %>
+
+<%= form_with model: library do |form| %>
+  <div>
+    <%= form.label :name %> <br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
