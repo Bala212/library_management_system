@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     respond_to do |format|
       if @book.save
-        format.html { redirect_to book_path(@book) }
+        format.html { redirect_to book_path(@book), notice: 'Book has been created successfully.' }
         # format.json { render json: @book }
       else
         format.html { render 'new', status: :unprocessable_entity }

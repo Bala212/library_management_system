@@ -1,33 +1,4 @@
+<%= render 'homes/first_page'%>
 <h1>Edit Student</h1>
 
-<% if @student.errors.any? %>
-    <% @student.errors.full_messages.each do |error| %>
-        <p><%= error %></p>
-    <% end %>
-<% end %>
-
-<%= form_with model: @student do |form| %>
-  <div>
-    <%= form.label :name%> <br>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :email%> <br>
-    <%= form.email_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :address%> <br>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.label :Phone_Number %> <br>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render 'form', student: @student%>
