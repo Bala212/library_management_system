@@ -46,7 +46,7 @@ class StudentsController < ApplicationController
     respond_to do |format|
       if @student.destroy
         # debugger
-        format.html { redirect_to students_path }
+        format.html { redirect_to students_path, status: :found }
         # format.json { render json: @book }
       else
         format.html { redirect_to student_path(@student), status: :unprocessable_entity }

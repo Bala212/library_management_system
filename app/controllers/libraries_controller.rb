@@ -1,5 +1,5 @@
 class LibrariesController < ApplicationController
-  before_action :set_library, only: [:edit, :update, :destroy]
+  before_action :set_library, only: [:edit, :update]
 
   def index
     @libraries = Library.all
@@ -31,11 +31,6 @@ class LibrariesController < ApplicationController
         format.html { render 'edit', status: :found }
       end
     end
-  end
-
-  def destroy
-    @library.destroy
-    redirect_to libraries_path
   end
 
   private

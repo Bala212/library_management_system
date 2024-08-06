@@ -41,7 +41,7 @@ class BooksController < ApplicationController
   def destroy
     respond_to do |format|
       if @book.destroy
-        format.html { redirect_to books_path }
+        format.html { redirect_to books_path, status: :found }
         # format.json { render json: @book }
       else
         format.html { redirect_to book_path(@book), status: :unprocessable_entity }

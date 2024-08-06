@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resources :books
   resources :students
-  resources :libraries
+  resources :libraries, except: [:destroy]
 end
