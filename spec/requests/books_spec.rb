@@ -78,7 +78,6 @@ RSpec.describe BooksController, type: :request do
       end
 
       it 'accepts and responds html of single book page' do
-        debugger
         post '/books', params: { book: valid_book }
         expect(response.media_type).to eq ("text/html")
       end
